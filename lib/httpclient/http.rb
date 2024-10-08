@@ -507,9 +507,9 @@ module HTTP
           reset_pos(@body)
           dump_file(@body, dev, @size)
         elsif @body
-          dev << header + @body
+          dev << header + @body #TODO
         else
-          dev << header
+          dev << header #TODO
         end
         dev
       end
@@ -585,7 +585,7 @@ module HTTP
       end
 
       def dump_chunks(io, dev)
-        buf = ''
+        buf = String.new('')
         while !io.read(@chunk_size, buf).nil?
           dev << dump_chunk(buf)
         end
@@ -961,7 +961,7 @@ module HTTP
       elsif @http_body
         dev = @http_body.dump(str, dev)
       else
-        dev << str
+        dev << str #TODO
       end
       dev
     end

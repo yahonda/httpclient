@@ -1242,7 +1242,7 @@ private
     end
     content = block ? nil : ''
     res = HTTP::Message.new_response(content, req.header)
-    @debug_dev << "= Request\n\n" if @debug_dev
+    @debug_dev << "= Request\n\n" if @debug_dev #TODO
     sess = @session_manager.query(req, proxy)
     res.peer_cert = sess.ssl_peer_cert
     @debug_dev << "\n\n= Response\n\n" if @debug_dev
@@ -1280,7 +1280,7 @@ private
     piper, pipew = IO.pipe
     pipew.binmode
     res = HTTP::Message.new_response(piper, req.header)
-    @debug_dev << "= Request\n\n" if @debug_dev
+    @debug_dev << "= Request\n\n" if @debug_dev #TODO
     sess = @session_manager.query(req, proxy)
     res.peer_cert = sess.ssl_peer_cert
     @debug_dev << "\n\n= Response\n\n" if @debug_dev
@@ -1310,7 +1310,7 @@ private
   end
 
   def dump_dummy_request_response(req, res)
-    @debug_dev << "= Dummy Request\n\n"
+    @debug_dev << "= Dummy Request\n\n" #TODO
     @debug_dev << req
     @debug_dev << "\n\n= Dummy Response\n\n"
     @debug_dev << res

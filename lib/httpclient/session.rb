@@ -829,7 +829,7 @@ class HTTPClient
             unless line
               raise BadResponseError.new('unexpected EOF')
             end
-            line.chomp!
+            line.chomp! #TODO
             break if line.empty?
             if line[0] == ?\  or line[0] == ?\t
               last = @headers.last[1]
